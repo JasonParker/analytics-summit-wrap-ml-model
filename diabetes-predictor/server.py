@@ -31,10 +31,15 @@ def train_model():
     return result, 201, {'Content-Type': 'text/html'}
 
 
-@application.route('/score', methods = ['GET'])
+@application.route('/score', methods = ['GET', 'POST'])
 def score_model():
-    result = scoring_workload()
-    return result, 201, {'Content-Type': 'text/html'}
+    print(request.__dict__)
+    if request.method == 'GET':
+        result = scoring_workload()
+    elif request.method == 'POST':
+        print(request.get_json())
+        result = scoring_workload(data=request.get_json())
+    return result, 201, {'Content-Type': 'application/json'}
 
 
 if __name__ == "__main__":
