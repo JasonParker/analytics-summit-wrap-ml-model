@@ -1,0 +1,6 @@
+mod_wsgi
+Flask
+flask_cors
+requests
+numpy
+pandas
