@@ -3,7 +3,7 @@ import joblib
 import json
 import pandas as pd
 
-from src.data.features import generate_features
+from src.data.features import preprocessing
 
 
 def scoring_workload(**kwargs):
@@ -16,7 +16,7 @@ def scoring_workload(**kwargs):
 
     print(msg_data)
 
-    x_score = generate_features(data)
+    x_score = preprocessing(data)
     print(x_score.head())
 
     model_package = joblib.load('models/diabetes_predictor')

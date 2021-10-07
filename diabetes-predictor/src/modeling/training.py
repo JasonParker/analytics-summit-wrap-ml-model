@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, FunctionTransformer
 from sklearn.svm import SVC
 
-from src.data.features import generate_features
+from src.data.features import preprocessing
 
 
 def training_workload(**kwargs):
@@ -37,7 +37,7 @@ Test data: {x_test.shape}
     """
     print(msg_data_split)
 
-    x_train = generate_features(x_train)
+    x_train = preprocessing(x_train)
 
     pipe = Pipeline(
         [
@@ -48,7 +48,7 @@ Test data: {x_test.shape}
 
     pipe.fit(x_train, y_train)
 
-    x_validate = generate_features(x_validate)
+    x_validate = preprocessing(x_validate)
     y_predict = pipe.predict(x_validate)
 
     cm = np.array(confusion_matrix(y_validate, y_predict, labels=[0,1]))
@@ -95,5 +95,3 @@ def train_validate_test_split(x, y, test_size, random_state):
     x_train, x_test_temp, y_train, y_test_temp = train_test_split(x,y, test_size = 0.5, random_state=42)
     x_validate, x_test, y_validate, y_test = train_test_split(x_test_temp, y_test_temp, test_size = 0.5, random_state=42)
     return x_train, y_train, x_validate, y_validate, x_test, y_test
-
-
