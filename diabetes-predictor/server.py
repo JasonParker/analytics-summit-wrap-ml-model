@@ -15,7 +15,7 @@ def check_token(view_function):
         if token == os.environ['TOKEN']:
             return view_function(*args, **kwargs)
         else:
-            return redirect('/')
+            return redirect('/no-auth')
     return secure_route_token_check
 
 
@@ -25,13 +25,21 @@ def home_page():
     return "pong", 201, {'Content-Type': 'text/html'}
 
 
+@application.route('/no-auth')
+def auth_failure():
+    """Health check route to ensure app is running."""
+    return "Request denied due to failed authorization", 201, {'Content-Type': 'text/html'}
+
+
 @application.route('/train', methods = ['GET'])
+@check_token
 def train_model():
     result = training_workload()
     return result, 201, {'Content-Type': 'text/html'}
 
 
 @application.route('/score', methods = ['GET', 'POST'])
+@check_token
 def score_model():
     print(request.__dict__)
     if request.method == 'GET':
