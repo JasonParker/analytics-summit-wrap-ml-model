@@ -3,7 +3,7 @@ import joblib
 import json
 import pandas as pd
 
-from src.data.features import generate_features
+from src.data.features import preprocessing
 
 
 def scoring_workload(**kwargs):
@@ -15,11 +15,6 @@ def scoring_workload(**kwargs):
     ##      training and prediction
     ## Generate predictions
     ## Postprocessing
+    ##  - Maybe you want to apply a post hoc rule to the output
 
     return "Predictions!"
-
-
-def postprocessing(data):
-    result = """Recommend having a wrapper function that 
-    calls more modular functions to execute postprocessing steps. """
-    return result 
