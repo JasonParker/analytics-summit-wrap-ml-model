@@ -5,3 +5,5 @@ Currently a placeholder, but just you wait...
 
 ## Highly recommended reading
 * [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/#directory-structure)
+* [Google Site Reliability Engineering](https://sre.google/books/)
+* [Quantifying Technical Debt](https://chelseatroy.com/2021/01/14/quantifying-technical-debt/)
