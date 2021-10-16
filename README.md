@@ -7,6 +7,7 @@ There are currently three subdirectories in this repo:
 * `live-demo` is the directory we'll start from for some live coding fun during the session; our goal will be to reproduce (more or less) what's in `diabetes-predictor`, discussing some of our choices and thinking along the way. 
 
 ## Highly recommended reading
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/) Python framework for Web development
 * [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/#directory-structure)
 * [Google Site Reliability Engineering](https://sre.google/books/)
 * [Quantifying Technical Debt](https://chelseatroy.com/2021/01/14/quantifying-technical-debt/)
